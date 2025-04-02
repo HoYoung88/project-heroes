@@ -1,0 +1,17 @@
+services:
+  mysql-heroes:
+    image: 'mysql:latest'
+    environment:
+      - 'MYSQL_DATABASE=heroes'
+      - 'MYSQL_ROOT_PASSWORD=admin'
+      - 'MYSQL_USER=heroes'
+      - 'MYSQL_PASSWORD=heroes_user'
+    volumes:
+      - '~/workspace/demos/demo-doker/mysql/db/master/conf:/etc/mysql/conf.d'
+      - '~/workspace/demos/demo-doker/mysql/db/master/data:/var/lib/mysql'
+    ports:
+      - '3306:3306'
+  redis:
+    image: 'redis:latest'
+    ports:
+      - '6379:6379'

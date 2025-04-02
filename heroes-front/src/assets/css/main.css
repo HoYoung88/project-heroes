@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@import "tui-grid/dist/tui-grid.min.css";
+@import "tui-pagination/dist/tui-pagination.min.css";
+
+.wallpaper {
+  /*background-image: url('/images/wp/wp42_1920x1200.jpg');*/
+  /*background-repeat: no-repeat;*/
+  /*background-position: center;*/
+  /*background-color: black;*/
+  /*position: absolute;*/
+  /*top: 0;*/
+  /*left: 0;*/
+  /*bottom: 0;*/
+  /*right: 0;*/
+  /*opacity: 0.8;*/
+}
+
+.tui-pagination .tui-first-child, .tui-pagination .tui-prev-is-ellip {
+  border-left: none;
+}
+
+.tui-pagination .tui-last-child, .tui-pagination .tui-next-is-ellip {
+  border-right: none;
+}

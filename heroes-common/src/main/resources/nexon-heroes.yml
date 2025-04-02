@@ -1,0 +1,45 @@
+open.api.nexon:
+  heroes:
+    domain: https://open.api.nexon.com/heroes
+#    api-key: test_4f9feb1a1145e63fa71d80eacba1d7ebe4042846799804571e9bd36229d18f5cefe8d04e6d233bd35cf2fabdeb93fb0d
+    api-key:
+    paths:
+      id:
+        path: /v2/id
+        params:
+          - character_name
+      character:
+        basic:
+          path: /v2/character/basic
+          params:
+            - ocid
+        title:
+          path: /v2/character/title
+          params:
+            - ocid
+        title-equipment:
+          path: /v2/character/title-equipment
+          params:
+            - ocid
+        item-equipment:
+          path: /v2/character/item-equipment
+          params:
+            - ocid
+        stat:
+          path: /v2/character/stat
+          params:
+            - ocid
+        guild:
+          path: /v2/character/guild
+          params:
+            - ocid
+      ranking:
+        hall-of-honor:
+          path: /v2/ranking/hall-of-honor
+          params:
+            - ranking_type
+        real-time:
+          path: /v2/ranking/real-time
+          params:
+            - ranking_type
+            - page_no

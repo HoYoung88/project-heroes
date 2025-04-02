@@ -1,0 +1,36 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    url: jdbc:mysql://master.demo.com/heroes?allowPublicKeyRetrieval=true&sslMode=DISABLED&rewriteBatchedStatements=true
+    username: heroes
+    password: heroes_user
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+  mail:
+    to: hoyoung07@blackholic.com
+    from: hoyoung07@blackholic.com
+    host: smtp.worksmobile.com
+    port: 465
+    username: hoyoung07@blackholic.com
+    password: imrbibhPmL5X
+    ssl:
+      enabled: true
+    properties:
+      mail:
+        debug: true
+        smtp:
+          auth: true
+          timeout: 2000
+          starttls:
+            enable: true
+
+server:
+  port: 8090

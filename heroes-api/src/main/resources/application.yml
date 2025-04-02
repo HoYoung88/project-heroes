@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: heroes-api
+  threads:
+    virtual:
+      enabled: true
+  batch:
+    jdbc:
+      initialize-schema: always
+      platform: mysql
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 30
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+        useLocalSessionState: true
+        rewriteBatchedStatements: true
+        cacheResultSetMetadata: true
+        cacheServerConfiguration: true
+        elideSetAutoCommits: true
+        maintainTimeStats: false
+      maximum-pool-size: 10
+  cache:
+    type: redis
+  docker:
+    compose:
+      enabled: false
+
+logging:
+  level:
+    com.project.heroes: debug
+    org.hibernate.orm.jdbc.bind: trace
