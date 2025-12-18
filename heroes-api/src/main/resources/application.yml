@@ -37,5 +37,8 @@ spring:
 
 logging:
   level:
-    com.project.heroes: debug
-    org.hibernate.orm.jdbc.bind: trace
+    root: INFO
+    com.project.heroes: INFO
+    org.springframework.web: INFO
+    org.hibernate: WARN
+    org.hibernate.orm.jdbc.bind: WARN

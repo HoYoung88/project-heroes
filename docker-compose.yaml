@@ -2,16 +2,26 @@ services:
   mysql-heroes:
     image: 'mysql:latest'
     environment:
-      - 'MYSQL_DATABASE=heroes'
-      - 'MYSQL_ROOT_PASSWORD=admin'
-      - 'MYSQL_USER=heroes'
-      - 'MYSQL_PASSWORD=heroes_user'
+      - 'MYSQL_DATABASE=${MYSQL_DATABASE:-heroes}'
+      - 'MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-admin}'
+      - 'MYSQL_USER=${MYSQL_USER:-heroes}'
+      - 'MYSQL_PASSWORD=${MYSQL_PASSWORD:-heroes_user}'
     volumes:
-      - '~/workspace/demos/demo-doker/mysql/db/master/conf:/etc/mysql/conf.d'
-      - '~/workspace/demos/demo-doker/mysql/db/master/data:/var/lib/mysql'
+      - './mysql/data:/var/lib/mysql'
+      - './mysql/conf:/etc/mysql/conf.d'
     ports:
-      - '3306:3306'
+      - '${MYSQL_PORT:-3306}:3306'
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
   redis:
     image: 'redis:latest'
     ports:
-      - '6379:6379'
+      - '${REDIS_PORT:-6379}:6379'
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
