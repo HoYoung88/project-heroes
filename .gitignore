@@ -12,3 +12,16 @@ build
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+*.env
+
+# Logs
+*.log
+logs/
+
+# Application properties with secrets (local only)
+**/application-local.yml

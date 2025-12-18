@@ -3,9 +3,9 @@ spring:
     activate:
       on-profile: local
   datasource:
-    url: jdbc:mysql://master.demo.com/heroes?allowPublicKeyRetrieval=true&sslMode=DISABLED&rewriteBatchedStatements=true
-    username: heroes
-    password: heroes_user
+    url: ${DB_URL:jdbc:mysql://localhost:3306/heroes?allowPublicKeyRetrieval=true&sslMode=DISABLED&rewriteBatchedStatements=true}
+    username: ${DB_USERNAME:heroes}
+    password: ${DB_PASSWORD:heroes_user}
   jpa:
     show-sql: true
     properties:
@@ -15,17 +15,17 @@ spring:
     hibernate:
       ddl-auto: update
   mail:
-    to: hoyoung07@blackholic.com
-    from: hoyoung07@blackholic.com
-    host: smtp.worksmobile.com
-    port: 465
-    username: hoyoung07@blackholic.com
-    password: imrbibhPmL5X
+    to: ${MAIL_TO:}
+    from: ${MAIL_FROM:}
+    host: ${MAIL_HOST:}
+    port: ${MAIL_PORT:465}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
     ssl:
       enabled: true
     properties:
       mail:
-        debug: true
+        debug: false
         smtp:
           auth: true
           timeout: 2000
@@ -33,4 +33,4 @@ spring:
             enable: true
 
 server:
-  port: 8090
+  port: ${SERVER_PORT:8090}
